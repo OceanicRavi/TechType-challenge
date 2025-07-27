@@ -7,14 +7,19 @@
     "dev": "ts-node src/index.ts",
     "build": "tsc -p tsconfig.build.json",
     "start": "node dist/index.js",
-    "seed": "ts-node src/db/seed.ts"
+    "seed": "ts-node src/db/seed.ts",
+    "test": "mocha --require ts-node/register test/**/*.ts --timeout 5000"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@types/express": "^5.0.3",
+    "@types/mocha": "^10.0.10",
     "@types/node": "^24.1.0",
+    "@types/supertest": "^6.0.3",
+    "mocha": "^11.7.1",
+    "supertest": "^7.1.4",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   },
