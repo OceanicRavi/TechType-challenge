@@ -20,7 +20,7 @@ export const createNode = async (req: Request, res: Response) => {
 
 export const addProperty = async (req: Request, res: Response) => {
   try {
-    const nodePath = `/${req.params.path}`;
+    const nodePath = `/${req.params[0]}`;
     const { key, value } = req.body;
 
     if (!key || value === undefined) {
@@ -36,7 +36,7 @@ export const addProperty = async (req: Request, res: Response) => {
 
 export const getSubtree = async (req: Request, res: Response) => {
   try {
-    const nodePath = `/${req.params.path}`;
+    const nodePath = `/${req.params[0]}`;
     const subtree = await nodeRepo.getSubtree(nodePath);
     
     if (!subtree) {
