@@ -3,13 +3,13 @@ import { createNode, addProperty, getSubtree } from '../handlers/nodeHandler';
 
 const router = Router();
 
-// 1. Create a node with a specified parent
+// Create a node with a specified parent
 router.post('/', createNode);
 
-// 2. Add a new property on a specific existing node
-router.post('/*path/properties', addProperty);
+// Match any path ending with /properties
+router.post(/^\/(.*)\/properties$/, addProperty);
 
-// 3. Return the subtree of nodes with their properties for a provided node path
-router.get('/*path/subtree', getSubtree);
+// Match any path ending with /subtree
+router.get(/^\/(.*)\/subtree$/, getSubtree);
 
 export default router;
